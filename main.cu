@@ -20,13 +20,6 @@
 
 using namespace std;
 
-
-__global__ void find_radius ( int *in ) {
-    
-    //int a = blockIdx.x;
-    //int b = blockIdx.y;
-}
-
 __global__ void hough ( int *in , int *rank) {
 
     int x = blockIdx.x;
@@ -90,6 +83,7 @@ int main( void ) {
 
     dim3    grid(XDIM,YDIM);
     hough<<<grid,1>>>(dev_in, dev_rank);
+
 
     cudaFree( dev_in );
     cudaFree( dev_rank );
